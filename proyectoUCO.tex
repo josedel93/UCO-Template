@@ -1,0 +1,413 @@
+\documentclass[a4paper, 12pt]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, activeacute, english]{babel}
+\usepackage[left = 35mm, right = 25mm, top = 25mm, height = 206mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{natbib}
+\usepackage{afterpage}
+\usepackage{indentfirst}
+
+
+%----------------------------------------------------------------------------------------
+%	ENCABEZADOS Y PIE DE PAGINA
+%----------------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+	\fancypagestyle{cuerpo}{
+      \fancyfoot{}
+      \fancyfoot[R]{Página: \thepage}
+      \fancyhead{}
+      \fancyhead[L]{Manual técnico \\} %Nombre del documento
+      \fancyhead[R]{\includegraphics[scale = 0.5]{logo_uco.jpg}} %Logo Universidad
+      \renewcommand{\headrulewidth}{0.4pt}
+      \renewcommand{\footrulewidth}{0.4pt}
+      \setlength{\headheight}{65pt}
+    }
+    \fancypagestyle{indice}{
+      \fancyfoot{}
+      \fancyfoot[L]{Autor} %Autor
+      \fancyfoot[R]{Asignatura} %Asignatura
+      \fancyhead{}
+      \fancyhead[L]{Algoritmos para la extracción de patrones sobre múltiples targets.\\} %Nombre del documento
+      \fancyhead[R]{\includegraphics[scale = 0.5]{logo_uco.jpg}} %Logo
+      \renewcommand{\headrulewidth}{0.4pt}
+      \renewcommand{\footrulewidth}{0.4pt}
+      \setlength{\headheight}{65pt}
+    }
+\newcommand{\excluirpagina}[1]{\addtocounter{page}{-1}} %Comando restar página.
+
+\bigskip
+\begin{document}
+\selectlanguage{spanish}
+
+%----------------------------------------------------------------------------------------
+%	PAGINA DE TITULO
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\center 
+ 
+%----------------------------------------------------------------------------------------
+%	ENCABEZADO DE LA PORTADA
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE Universidad de Córdoba}\\[1.5cm] % Nombre de la Universidad
+\textsc{\Large Escuela Politécnica Superior de Córdoba}\\[0.5cm] % Nombre de la escuela
+\textsc{\Large Grado en Ingeniería Informática}\\[0.5cm] % Nombre de la escuela
+\textsc{\large Trabajo Fin de Grado}\\[0.5cm] % Asignatura
+
+%----------------------------------------------------------------------------------------
+%	TITULOS
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \LARGE \bfseries Algoritmos para la extracción de patrones sobre múltiples targets.}\\[0.4cm] % Titulo del Documento
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTOR
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\emph{Autor:}\\
+José Manuel Delgado Zamorano % Nombre de Autor/es
+\end{center}
+\end{minipage}\\[1cm]
+~
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\emph{Tutor:}\\
+José María Luna Ariza \\
+Sebastián Ventura Soto
+ % Nombre de Tutor/es
+\vspace*{0.15in}
+
+{\large 10 de enero de 2017}\\[3cm] % Cambiar por \today para fecha actual
+
+\end{center}
+\end{minipage}\\[1cm]
+
+
+%----------------------------------------------------------------------------------------
+%	LOGOS
+%----------------------------------------------------------------------------------------
+\begin{minipage}{5cm}
+\begin{flushleft}
+\includegraphics[width=6.5cm]{logo_uco.jpg}
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{7cm}
+\begin{flushright}
+\includegraphics[width=6cm]{EPS.jpg}
+\end{flushright}
+\end{minipage}\\[3cm]
+%----------------------------------------------------------------------------------------
+%	FECHA
+%----------------------------------------------------------------------------------------
+
+\afterpage{\null\newpage}
+\newpage
+
+
+ 
+%----------------------------------------------------------------------------------------
+
+\vfill 
+
+\end{titlepage}
+
+
+%----------------------------------------------------------------------------------------
+%	INDICES DE CONTENIDO 
+%----------------------------------------------------------------------------------------
+
+\newpage
+\thispagestyle{fancy} 
+\excluirpagina
+
+\tableofcontents
+\newpage
+
+\listoffigures
+
+\newpage
+\listoftables
+
+
+%----------------------------------------------------------------------------------------
+%	CUERPO DE TEXTO
+%----------------------------------------------------------------------------------------
+
+\newpage
+\pagestyle{cuerpo}
+\thispagestyle{cuerpo}
+\setcounter{page}{1}
+
+\section{Introducción}
+
+En nuestra sociedad globalizada, en la que casi cualquier persona tiene acceso a internet y utiliza diariamente dispositivos tecnológicos, generando grandes volúmenes de información, el análisis de datos es cada vez más demandado en múltiples campos de aplicación, especialmente en aquellos lugares donde se almacenan enormes cantidades de datos y es necesario extraer conocimiento útil, a partir de dichos datos en bruto.\\
+
+Cuando hablamos de análisis de datos el elemento principal se denomina patrón \cite{}, el cual representa algún tipo de homogeneidad en los datos y puede ser utilizado para para representar las propiedades intrínsecas de los datos.\\
+
+La minería de patrones está relacionada con tareas que permiten describir los datos, englobando las técnicas de extracción de elementos frecuentes , así como el descubrimiento de reglas de asociación que permiten relacionar elementos de los datos. Debido a la enorme demanda de análisis de datos existentes en casi cualquier dominio de la aplicación , las tareas descriptivas tradicionales de análisis de datos han dado lugar a nuevas técnicas que permiten describir los datos partiendo de patrones preestablecidos. Estos elementos no son más que atributos de los propios datos sobre los que se quieren extraer información adicional. Surge así el concepto de \textit{Supervised Descriptive Pattern Mining} \cite{}\\
+
+Dentro de estas técnicas se encuentra la extracción de patrones emergentes, conjuntos de contraste, descubrimiento de subgrupos, así como técnicas relativas a la extracción de patrones sensibles al contexto o patrones discriminativos. Además de las anteriores, una de las técnicas que mas auge esta teniendo es la de la extracción de modelos excepcionales, que trata la extracción de subconjuntos de datos cuyo comportamiento sea excepcional respecto al comportamiento global de los datos. Dicho comportamiento se mide en base a la correlación de existente entre dos atributos targets.\\
+
+En la extracción de modelos excepcionales \cite{} el usuario tiene que establecer que atributos o targets son los que se desean analizar en el problema, y es el algoritmo, el encargado de buscar que conjunto de elementos forman el subconjunto de datos con un comportamiento excepcional respecto al resto de datos. El problema reside en que en ocasiones no se conoce que elementos deben analizarse y, por tanto, se debe realizar una búsqueda a ciega sobre múltiples targets. Este problema es mucho más complejo computacionalmente, ya que dado un conjunto de datos con k atributos y m targets, se requiere analizar $2^k-1$ posibles soluciones para cada una de las posibles $C_m^2$ combinaciones de targets. En este caso, es especialmente importante diseñar algoritmos eficientes que permitan analizar el problema y extraer modelos excepcionales sobre múltiples combinaciones de targets, así como diseñar algoritmos evolutivos que no requieran analizar todo el espacio de búsqueda. \cite{}.
+
+\newpage
+\section{Definición del problema}
+
+A continuación, definiremos nuestro problema desde dos puntos de vista. En primer lugar llevaremos a cabo la definición del problema real que realizará desde el punto de vista del usuario del sistema, y por ultimo se procederá a la definición del problema técnico, utilizando el primero para definir los componentes técnicos de diseño.
+
+\subsection{Definición del problema real}
+
+El principal problema que aborda este proyecto, es el alto coste computacional que conlleva la búsqueda de patrones excepcionales sobre múltiples targets, en bases de datos con un alto numero de atributos. Para estas bases de datos, utilizar algoritmos exhaustivos que comprueban todas las posible soluciones se hace inviable debido al elevado tiempo que conlleva analizarlas todas.\\
+
+Por ello, es necesario elaborar un método que permita obtener un conjunto de soluciones aceptablemente buenas, en un tiempo mucho menor. Siendo de gran utilidad en los casos que se necesite obtener una rápida respuesta de los mejores patrones, sin importar que se evalúen todos ellos. 
+
+\subsection{Definición del problema técnico}
+
+Una vez definido el problema real, es necesario definir de manera mas técnica los principales componentes de nuestro problema, para ello se utilizará la técnica PDS (Product Desing Specification) que detalle que requisitos debe cumplir nuestra solución al problema previamente planteado.\\
+
+Para este propósito se hace necesario definir una serie de cuestiones básicas:
+
+\subsubsection{Funcionamiento}
+
+Para comprobar el correcto funcionamiento de nuestra algoritmo, nuestra solución tendrá que admitir la lectura de distintas bases de datos en la que sera necesario indicar que atributos corresponden a los patrones y cuales a los targets, así como un soporte mínimo que deberán cumplir los patrones o las combinaciones de estos para ser evaluados.\\
+
+Con el fin de comprobar la eficacia de nuestro algoritmo se debe poder probar diferentes algoritmos exhaustivos que devuelvan todas las combinaciones de patrones frecuentes para ser evaluadas. La evaluación de los patrones excepcionales se llevara acabo mediante Kendall y Sperman, siendo posible elegir cual utilizar.\\
+
+Como comparativa adicional se desarrollaran dos algoritmos de búsqueda aleatoria, para comprar la eficacia del algoritmo evolutivo implementado.\\
+
+Con respecto al algoritmo evolutivo, se deberán especificar que parámetros afectaran al algoritmo, como probabilidades de mutación y cruce, tamaño de población, numero de generaciones, etc. para poder calibrar la combinación óptima de estos, así como la impremeditación de cruces y mutaciones dirigidas para guiar la búsqueda hacia mejores soluciones.
+
+\subsubsection{Entorno}
+
+Para definir mejor el entorno que afecta a nuestro problema, lo dividiremos en tres esubentornos.\\
+\\
+Entorno de programación.\\
+
+Nuestro algoritmo sera implementado en lenguaje Python, ya que cuenta con las librerías necesarias para el calculo de los coeficiente de Sperman y Kendall, así como implementaciones de los distintos algoritmos exhaustivos, además de numerosas librerías que facilitan y optimizan el tratamiento de bases de datos.\\
+\\
+Entorno software.\\
+
+Tanto en sistemas Windows, macOs o Linux se necesita la versión 3 de Python y software que permita la instalación de las librerías necesarias. \\
+\\
+Entorno de usuario.\\
+
+El usuario deberá tener los conocimientos necesarios acerca del funcionamiento de los distintos parámetros de configuración para el correcto funcionamiento del algoritmo.
+
+
+\subsubsection{Vida esperada}
+
+La vida esperada para este tipo de proyectos es difícil de estimar, ya que depende en gran medida de las investigaciones en este campo. Este proyecto podrá servir de base en futuras investigaciones que traten este tema en mas profundidad.\\
+
+\subsubsection{Ciclo de mantenimiento}
+
+En este proyecto hay varios casos en los que se necesitará lleva a cabo un mantenimiento de las distintas funcionalidades implementadas:
+\begin{itemize}
+\item Si se requiere una mayor optimización del algoritmo o adición de nuevos métodos que mejoren la eficiencia del mismo.
+
+\item El caso en el que se detecten errores que impidan el correcto funcionamiento del mismo tanto en la fase de prueba como de implementación.
+
+\item El caso en el que se actualicen las librerías utilizadas, sera necesario adaptar el código para su utilización.
+\end{itemize}
+
+\subsubsection{Competencia}
+No se ha encontrado ningún software que trate este problema, ni tampoco estudios que traten el descubrimiento de patrones excepcionales desde el punto de vista de múltiples targets, debido posiblemente al carácter novedoso y reciente de esta técnica.
+
+\subsubsection{Aspecto externo}
+Debido a que la finalidad del proyecto es un estudio sobre el rendimiento del algoritmo evolutivo implementado, no se ha desarrollado ninguna interfaz gráfica. Además esto beneficia su ejecución en entornos servidor y proporcionara una mayor flexibilidad en la realización de las pruebas.
+
+\subsubsection{Estandarización}
+El proyecto se ha desarrollado en el lenguaje de programación Python, en el que se ha utilizado la guía de estilo PEP-8 \cite{} de la \textit{Python Software Foundation}, así como multiple librerias como 
+\subsubsection{Calidad y fiabilidad}
+La fiabilidad es un aspecto a tener en cuenta durante el desarrollo de nuestro sistema, ya que una carencia de esta, pondría en peligro la calidad de los datos obtenidos e impediría obtener unas conclusiones acertadas.\\
+
+Otro aspecto importante es la calidad que sera garantizada mediante la implantación de guías de estilo, el uso de librerías ampliamente conocidas y utilizadas en este tipo de proyectos, y una serie de pruebas que minimizaran las probabilidades de fallo de nuestro sistema.
+
+
+\subsubsection{Programa de tareas}
+La programación temporal de este proyecto se ha realizado teniendo en cuenta que la duración del mismo no superara las 300 horas de trabajo. Para una correcta distribución del tiempo necesario se ha separado en fases de desarrollo siendo estas las siguientes:\\
+\\
+Estudio previo\\
+
+En esta fase se reunirán todos los conocimientos necesario para comprender correctamente el problema, así como un estudio de los diferentes paradigmas de los algoritmos evolutivos, además se llevara a cabo una evaluación de las distintas herramientas que nos sera útiles para la solución del mismo, como el propio lenguaje de programación Python, y las diferente librerías que nos podrían ser útiles.\\
+\\
+Análisis de requisitos.\\
+
+La durante de esta fase se establecerán los requisitos necesarios para el cumplimiento del proyecto.\\
+\\
+Diseño\\
+
+En esta fase se diseñara el algoritmo genético en base a la información previamente adquirida y establecerán una serie de pruebas para calibrar y medir su eficiencia.\\
+\\
+
+Implementación\\
+
+Durante el transcurso de esta fase, se seguirá el diseño previamente establecido y se implementara el algoritmo evolutivo, así como las distintas versiones de los algoritmos de búsqueda aleatoria y de los algoritmos exhaustivos.\\
+\\
+Evaluación y pruebas.\\
+
+Durante esta fase, se realizaran las pruebas necesarias para buscar posibles errores y asegurar la calidad, buscando posibles errores no detectados durante la fase de implementación. Además, se realizara, una batería inicial de pruebas para calibrar todos los parámetros del algoritmo evolutivo con el objetivo de obtener la combinación óptima de estos. Por ultimo, se realizaran unas pruebas de rendimiento comprando el algoritmo evolutivo con la búsqueda aleatoria y los algoritmos exhaustivos.\\
+\\
+Documentación\\
+
+Esta fase se realizará paralelamente a las otras. SE recogerá en ella toda la información necesaria para para el éxito del proyecto, así como tola la información que este nos proporcione. Por ultimo se plasmará todas las conclusiones obtenidas en base a esa información.\\
+
+
+\subsubsection{Pruebas}
+En este proyecto se diferenciarán dos tipos de pruebas, aquellas que se realizaran durante la implementación, con el fin de detectar y corregir errores de funcionamiento. Estas a su vez se diferenciaran en dos tipos:
+\begin{itemize}
+    \item Pruebas de caja blanca. En estas pruebas se conocerán los valores de las variables y utilizaran las especificaciones para determinar el resultado esperado en cada caso.
+    \item Pruebas de caja negra. Con este tipo de pruebas, los resultados se determinan a partir de la especificación funcional, y conociendo las entradas de datos se probara si las salidas son las correctas.
+\end{itemize}
+
+Por último, una vez comprobado el correcto funcionamiento de lo implementado, se procederá a la realización de una serie de pruebas con el fin de optimizar el algoritmo evolutivo diseñado, y comprar su eficacia con el resto de de algoritmos.\\
+
+\subsubsection{Seguridad}
+La seguridad se basará en la utilización de bases de datos de dominio publico para la realización de las pruebas, con el fin de evitar problemas relacionados con la privacidad de los datos.
+
+\newpage
+\section{Objetivos}
+El objetivo principal de este proyecto se basa en dar solucion al proble de patrones excepcionales sobre multiples targets. Para ello, se pretende desarrollar una serie de algoritmos (exhaustivos y basados en heurísticas). Los objetivos que engloba este proyecto se puede descomponer en tres grupos.
+\begin{enumerate}
+    \item Desarrollo de algoritmos de búsqueda exhaustiva.
+    \begin{itemize}
+        \item Desarrollo de una versión basada en el algoritmo Apriori.
+        \item Desarrollo de una versión basada en el algoritmo FP-Growth.
+        \item Desarrollo de una versión basada en el algoritmo ECLAT.
+        \item Desarrollo de una versión basada en el algoritmo RELIM.
+        \item Desarrollo de una versión basada en el algoritmo SAM.
+        \item Desarrollo de una versión basada en el algoritmo LCM.
+    \end{itemize}
+    \item Desarrollo de algoritmos de búsqueda no exhaustiva.
+        \begin{itemize}
+            \item Desarrollo de un algoritmo basado en búsqueda aleatoria.
+            \item Desarrollo de un algoritmo evolutivo.
+        \end{itemize}
+    \item Estudio experimental.
+        \begin{itemize}
+            \item Estudio comparativo de las diferente propuestas desarrolladas.
+            \item Análisis de la idoneidad o no del uso de heurísticas en el problema descrito.
+        \end{itemize}
+    
+\end{enumerate}
+\newpage
+\section{Antecedentes}
+En un reciente libro publicado por los directores de este proyecto, y titulado Supervised Descriptive Pattern Mining \cite{}, se describen múltiples tareas relacionadas con la descripción de información a partir de subconjuntos de datos (en base a un atributo objetivo o target). Una de estas técnicas de minería de patrones descriptivas supervisadas está enfocada a descubrir comportamientos anómalos o excepcionales dentro de los datos. Esta metodología surge en el seno del descubrimiento de subgrupos, pero desde un punto de vista de la correlación entre pares de atributos. Uno de los primeros trabajos relacionados con la temática fue propuesto por W. Duivesteijn \cite{} en 2016; sin embargo, esta propuesta y todas las posteriores no ofrecen un mecanismo de analizar la excepcionalidad desde el punto de vista de múltiples targets. Así pues, es el experto en el dominio el encargado de establecer qué dos targets son los realmente importantes. En múltiples ocasiones, el experto en el dominio desconoce qué dos targets son los más adecuados y posee, en su lugar, un conjunto de targets sobre a analizar.\\
+
+En términos generales, no existe mucha literatura relacionada (un par de artículos científicos en los que se describe el problema desde el punto de vista de pares de targets cite{} vcite{}). Este hecho, unido a que se trata de una técnica realmente reciente, demuestra que es un tema abierto y que posee un amplio margen de investigación.
+
+\newpage
+\section{Restricciones}
+En esta sección se enunciaran las restricciones o factores limitativos que condicionarán la elaboración de nuestro proyecto. En primer lugar se detallaran los factores dato, que son aquellos que están impuestos por la propia naturaleza del problema o por el cliente. Por otro lado, los factores estratégicos, a diferencia de los anteriores, son aquellos de los que existen varias posibilidades valida y quedan a elección del autor elegir los que resuelven el problema de manera óptima.\\
+
+\subsection{Factores dato}
+\begin{itemize}
+
+\item  La elaboración de este proyecto se debe ajustar a los 12 créditos que corresponden al trabajo de fin de grado, por lo que el tiempo de trabajo no debe superar las 300 horas disponibles.
+
+\item El proyecto deberá cumplir con las normativas establecidas por la Escuela Politécnica Superior de Córdoba.
+
+\item Debido al carácter investigador de este proyecto y a los recursos económicos limitados, se debe utilizar software libre, versiones gratuitas o licencias estudiantiles para todas las herramientas necesarias para la resolución de nuestro problema.
+
+\item El proyecto deberá cumplir todos los objetivos propuestos, y tendrá que ser realizado de la forma mas clara posible, para que pueda servir de base de futuras mejoras o nuevas investigaciones en este campo.
+
+\item EL hardware utilizado será el que disponga el autor, además del proporcionado por el departamento de ciencias de la computación y análisis numérico de la universidad de Córdoba.
+
+\item Todos los algoritmos serán programados bajo el mismo lenguaje para poder realizar una comparación de tiempos de computo verídica.
+
+\end{itemize}
+
+\newpage
+\subsection{Factores estratégicos}
+\begin{itemize}
+
+\item La implementación de los algoritmos sera realizada íntegramente en Python, debido a que cuenta con numerosas librerías ampliamente utilizadas.
+
+\item Se utilizara la versión 3.7 de Python.
+
+\item El entorno de desarrollo utilizado sera Spyder en su versión 3.3.1 ya que cuenta con numerosas herramientas para la edición y depuración de código sobre Windows 10.
+
+\item Para la ejecución de las pruebas se utilizará la versión de Ubuntu 16.10, ya que la creación de scripts de bash facilita la realización de pruebas iterativas.
+
+\item Las bases de datos se utilizaran en formato csv ya que la librería pandas de python nos permite trabajar con ellas de forma sencilla y eficiente.
+
+\item Para la adecuación de las bases de datos se utilizará el software de Weka.
+
+\item Para la creación de la documentación se utilizara el sistema de composición de textos Látex.
+
+\end{itemize}
+
+\newpage
+\section{Recursos}
+En esta sección se citaran los recurso que serán necesarios para el correcto desarrollo del proyecto. Estos recursos se divide en los siguientes tres subgrupos.
+\subsection{Recursos humanos}
+
+EL equipo de personas que intervienen en el presente proyecto son:
+\begin{itemize}
+
+    \item Dr. José María Luna Ariza: Profesor contratado de ciencias de la computación e inteligencia artificial de la Universidad de Córdoba.
+    
+    \item Dr. Sebastián Ventura Soto: Profesor titular de ciencias de la computación e inteligencia artificial de la Universidad de Córdoba.
+    
+\end{itemize}
+
+Su labor será la de orientar y guiar al autor del proyecto, así como la de supervisar el trabajo con el objetivo de comprobar que se este realizando de manera correcta.
+
+\begin{itemize}
+
+    \item José Manuel Delgado Zamorano: Alumno de 4º curso del Grado en Ingeniaría informática de la Universidad de Córdoba.
+\end{itemize}
+Será el encargado del diseño de las heurísticas que resuelvan el problema planteado, así como la implementación de estas y de diferentes algoritmos exhaustivos existentes para su estudio. También deberá planificar y realizar las pruebas necesarias para comprobar la viabilidad o no del uso de heurísticas en este problema. Por ultimo sera el encargado de desarrollar la documentación necesaria. 
+    
+\subsection{Recursos hardware}
+Los recursos hardware utilizados por el alumno son:
+\begin{itemize}
+    \item Un equipo sobremesa que debido a su potencia sera el utilizado para el desarrollo del proyecto y la ejecucion de las pruebas. Las especificaciones de este equipo son:
+        \begin{itemize}
+        \item Procesador Intel Core i5-6400 2.7 GHz.
+        \item Memoria Ram DDR3 8GB.
+        \item Almacenamiento de 1TB en formato HDD y 128 GB en formato SSD.
+        \item Tarjeta gráfica Nvidea 1050Ti 4GB GDDR5.
+    \end{itemize}
+    \newpage
+    \item Equipo portátil con el que se desarrollará el proyecto y de documentara fuera de casa. Debido a su menos potencia no se realizaran las pruebas de rendimiento con él. Sus especificaciones son:
+        \begin{itemize}
+            \item Procesador Intel Core i3-380M 2.5 GHz.
+            \item Memoria Ram DDR3 4GB.
+            \item Almacenamiento de 500 GB en formato HDD.
+            \item Tarjeta gráfica ATI Mobility Radeon HD 5470 512 MB.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Recursos software}
+Los recursos software a disposición del alumno son:
+ncia no se realizaran las pruebas de rendimiento con él. Sus especificaciones son:
+        \begin{itemize}
+            \item Sistema operativo Microsoft Windows 10.
+            \item Sistema operativo Ubuntu 16.10.
+            \item Entorno de desarrollo Ananconda Spyder.
+            \item Sistema de composición de textos Latex.
+    \end{itemize}
+
+\newpage
+\section{Análisis del sistema}
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAFIA
+%----------------------------------------------------------------------------------------
+\newpage
+\bibliography{bibo.bib} %Nombre del fichero de bibliografia.bib
+\bibliographystyle{apalike} %Estilo de la bibliografia
+
+\end{document}
